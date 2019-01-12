@@ -5,6 +5,8 @@ public class Test {
 		A a=new A();
 		a.setName("ÕÅÈı");
 		System.out.println("²âÊÔ");
+		B b= new B();
+		b.setA("ÂíÎä");
 	}
 
 }
