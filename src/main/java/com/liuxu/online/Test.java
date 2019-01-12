@@ -2,11 +2,8 @@ package com.liuxu.online;
 
 public class Test {
 	public static void main(String[] args) {
-		A a=new A();
-		a.setName("张三1");
-		System.out.println("测试");
 		B b= new B();
-		b.setA("马武1");
+		b.setA("马武11");
 	}
 
 }
