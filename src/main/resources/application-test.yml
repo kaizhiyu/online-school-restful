@@ -1,0 +1,20 @@
+#测试环境
+dubbo:
+  group: 
+    accout: GCoin-uat
+  registry:
+    protocol: zookeeper #注册中心类型
+    product_address: 10.112.179.149:2181,10.112.179.150:2181,10.112.179.151:2181 
+    gcache_address: 10.112.179.149:2181,10.112.179.150:2181,10.112.179.151:2181 
+    
+http: 
+  maxTotal: 200 #最大连接数
+  defaultMaxPerRoute: 100 #单个路由并发数，不要超过最大连接数
+  connectTimeout: 2000 #连接超时时间，取得了连接池中的某个连接之后到接通目标url的连接等待时间
+  connectionRequestTimeout: 2000 #从连接池中取连接的超时时间
+  socketTimeout: 30000 #请求超时时间，连接到服务器之后到从服务器获取响应数据需要等待的时间
+  staleConnectionCheckEnabled: true  #在提交请求之前 测试连接是否可用  
+    
+
+
+    

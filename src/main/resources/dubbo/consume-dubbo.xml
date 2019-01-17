@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://code.alibabatech.com/schema/dubbo  
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">  
+
+    <!-- name： 服务应用名称 -->  
+    <dubbo:application name="${dubbo.application.name}" logger="slf4j"/>  
+    <!-- 多注册中心配置 -->
+    <!-- protocol：注册中心类型，address：注册中心暴露服务地址 -->  
+   	<dubbo:registry id="productZK" protocol="${dubbo.registry.protocol}" address="${dubbo.registry.product_address}" />  
+   	
+	<!-- 凑单 -->
+   	<dubbo:reference id="myTestService" interface="com.liuxu.online.service.IMyTestService" check="false" timeout="3000" retries="0" registry="productZK" />
+
+</beans>
