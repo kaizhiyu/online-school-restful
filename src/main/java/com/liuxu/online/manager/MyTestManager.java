@@ -7,11 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.liuxu.online.entity.MyTest;
 import com.liuxu.online.service.IMyTestService;
-/**
- * 商品推荐逻辑处理层
- * @author lishouxu-ds
- *
- */
+
 @Service
 public class MyTestManager {
 
