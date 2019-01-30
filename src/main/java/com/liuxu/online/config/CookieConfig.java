@@ -9,11 +9,7 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @Author yuliang-ds1
- * @Date 2018/12/8 20:53
- * @Description
- */
+
 @Configuration
 public class CookieConfig {
 

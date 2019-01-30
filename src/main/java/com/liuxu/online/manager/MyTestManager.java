@@ -13,7 +13,7 @@ import com.liuxu.online.service.IMyTestService;
  *
  */
 @Service
-public class ProductRecommendManager {
+public class MyTestManager {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 

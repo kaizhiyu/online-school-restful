@@ -19,43 +19,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.liuxu.online.entity.MyTest;
-import com.liuxu.online.manager.ProductRecommendManager;
-import com.liuxu.online.restfulcommon.exception.MeidianException;
+import com.liuxu.online.manager.MyTestManager;
+import com.liuxu.online.restfulcommon.exception.MyException;
 import com.liuxu.online.restfulcommon.exception.ServiceException;
 import com.liuxu.online.restfulcommon.reponse.ResponseJson;
 import com.liuxu.online.vo.ParamVo;
 
-/**
- * 商品详情页，商品推荐部分控制层
- * @author lishouxu-ds
- *
- */
 @RestController
 @Validated
 @RequestMapping("/v1")
-public class ProductRecommendController {
+public class MyTestController {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
-	private ProductRecommendManager productRecommendManager;
+	private MyTestManager productRecommendManager;
 
 	
-    /**
-     * 查询店铺信息
-     * @param shopId
-     * @param ppi
-     * @param scn
-     * @param request
-     * @return
-     * @throws MeidianException
-     */
 	@GetMapping("/recommend/getShopInfo")
 	public ResponseJson<MyTest> getShopInfo(
 			@NotBlank(message = "{param.error}") @RequestParam(value = "id", required = true) String id,
 			@CookieValue(value = "PPI", required = false) Integer ppi, 
 			@CookieValue(value = "SCN", required = false) String scn, 
-			HttpServletRequest request)throws MeidianException {
+			HttpServletRequest request)throws MyException {
 		System.out.println(">>>>>>>>>>>"+id);
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		MyTest myTest=productRecommendManager.getShopInfo(1L);
@@ -69,7 +55,7 @@ public class ProductRecommendController {
 	public ResponseJson<MyTest> getShopInfo1(
 			@NotBlank(message = "{param.error}") @RequestParam(value = "id", required = true) String id,
 			@CookieValue(value = "SCN", required = true) String scn, 
-			HttpServletRequest request)throws MeidianException {
+			HttpServletRequest request)throws MyException {
 		System.out.println(">>>>>>>>>>>"+id+"scn"+scn);
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		MyTest myTest=productRecommendManager.getShopInfo(1L);
@@ -78,7 +64,7 @@ public class ProductRecommendController {
 	}
 	
 	@PostMapping("/recommend/getShopInfo2")
-	public ResponseJson<MyTest> getgetShopInfo2(@Valid @RequestBody ParamVo paramVo) throws MeidianException {
+	public ResponseJson<MyTest> getgetShopInfo2(@Valid @RequestBody ParamVo paramVo) throws MyException {
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		try{
 			MyTest myTest=productRecommendManager.getShopInfo(1L);
@@ -92,7 +78,7 @@ public class ProductRecommendController {
 	
 	
 	@PostMapping("/recommend/getShopInfo3")
-	public ResponseJson<MyTest> getgetShopInfo3(@Valid @RequestBody ParamVo paramVo) throws MeidianException {
+	public ResponseJson<MyTest> getgetShopInfo3(@Valid @RequestBody ParamVo paramVo) throws MyException {
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		try{
 			MyTest myTest=productRecommendManager.getShopInfo(1L);
