@@ -33,7 +33,7 @@ public class MyTestController {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
-	private MyTestManager productRecommendManager;
+	private MyTestManager myTestManager;
 
 	
 	@GetMapping("/recommend/getShopInfo")
@@ -44,7 +44,7 @@ public class MyTestController {
 			HttpServletRequest request)throws MyException {
 		System.out.println(">>>>>>>>>>>"+id);
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
-		MyTest myTest=productRecommendManager.getShopInfo(1L);
+		MyTest myTest=myTestManager.getShopInfo(1L);
 		response.setData(myTest);
 		return response;
 	}
@@ -58,7 +58,7 @@ public class MyTestController {
 			HttpServletRequest request)throws MyException {
 		System.out.println(">>>>>>>>>>>"+id+"scn"+scn);
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
-		MyTest myTest=productRecommendManager.getShopInfo(1L);
+		MyTest myTest=myTestManager.getShopInfo(1L);
 		response.setData(myTest);
 		return response;
 	}
@@ -67,7 +67,7 @@ public class MyTestController {
 	public ResponseJson<MyTest> getgetShopInfo2(@Valid @RequestBody ParamVo paramVo) throws MyException {
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		try{
-			MyTest myTest=productRecommendManager.getShopInfo(1L);
+			MyTest myTest=myTestManager.getShopInfo(1L);
 			response.setData(myTest);
 		}catch (Exception e) {
 			throw new ServiceException("product.skuList.exception");
@@ -81,7 +81,7 @@ public class MyTestController {
 	public ResponseJson<MyTest> getgetShopInfo3(@Valid @RequestBody ParamVo paramVo) throws MyException {
 		ResponseJson<MyTest> response = new ResponseJson<MyTest>();
 		try{
-			MyTest myTest=productRecommendManager.getShopInfo(1L);
+			MyTest myTest=myTestManager.getShopInfo(1L);
 			response.setData(myTest);
 		}catch (Exception e) {
 			throw new ServiceException("paramVo.id.notBlank");
