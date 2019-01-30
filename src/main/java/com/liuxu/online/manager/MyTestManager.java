@@ -16,11 +16,7 @@ public class MyTestManager {
 	@Autowired
 	private IMyTestService myTestService;
 
-	/**
-	 * 获取店铺信息
-	 * @param id
-	 * @return
-	 */
+
 	public MyTest getShopInfo(Long id){
 		MyTest myTest  = myTestService.selectById(id);
 		logger.info("myTestService.selectById ==> {} ",  myTest);
